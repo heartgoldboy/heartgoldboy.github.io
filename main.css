@@ -5,7 +5,7 @@
   outline: 0;
   padding: 0.875rem 0.688rem;
   text-decoration: none;
-
+  margin-top: 25px;
 }
 #page #footer,
 #page #header-container,
@@ -19,8 +19,8 @@
   max-height: fit-content;
 }
 
-#page {
-  height: 540px;
+#page, #logo-container, #survey-canvas,.content {
+  height: 420px;
 }
 #logo-container {
   margin: 0 0 20px 0 !important;
@@ -42,6 +42,7 @@ img {
   text-align: left;
   display: flex;
   justify-content: center;
+  height:100px;
 }
 
 #error-message {
@@ -50,7 +51,7 @@ img {
 
 section {
   width: 100%;
-  height: 200px;
+  height: 180px;
   margin: 0 auto;
   display: flex;
 }
@@ -68,6 +69,7 @@ a {
   margin: 0 auto;
   width: 100%;
   text-align: center;
+  height: 200px;
 }
 .asucr_logo {
   display: block;
@@ -81,6 +83,10 @@ a {
 
 .rich-text {
   font-size: medium !important;
+}
+
+.go-next {
+  height: 100px !important;
 }
 
 #main-content {
@@ -102,5 +108,11 @@ i {
   #page #logo-container,
   #page #survey-canvas {
     width: 64rem;
+  }
+}
+
+@media (min-height: 927px) {
+  #page {
+    height: 600px
   }
 }
