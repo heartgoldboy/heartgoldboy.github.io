@@ -1,3 +1,1116 @@
+<header>
+  <style>
+    #progress-bar.progress-bar-top {
+      order: 2;
+    }
+    #progress-bar.progress-bar-bottom {
+      order: 4;
+    }</style
+  ><style>
+    .grecaptcha-badge {
+      display: none;
+    }
+    #navigation.confirm-navigation {
+      padding-inline-end: 0;
+      padding-inline-start: 0;
+    }</style
+  ><style>
+    .shadowbox {
+      position: relative;
+    }
+    .shadowbox .shadowbox-inner.scrollable {
+      overflow-x: auto;
+    }
+    .shadowbox .shadow {
+      bottom: 0;
+      color: rgba(0, 0, 0, 0.7);
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: all 0.2s ease-out;
+    }
+    .shadowbox .shadow.right {
+      box-shadow: inset -4em 0 3em -4em;
+    }
+    [dir="rtl"] .shadowbox .shadow.right {
+      box-shadow: inset 4em 0 3em -4em;
+    }
+    .shadowbox .shadow.left {
+      box-shadow: inset 4em 0 3em -4em;
+    }
+    [dir="rtl"] .shadowbox .shadow.left {
+      box-shadow: inset -4em 0 3em -4em;
+    }</style
+  ><style>
+    .popper {
+      display: flex;
+      left: -999999rem;
+      position: absolute;
+      top: -999999rem;
+      z-index: 100;
+    }
+    .popper > * {
+      flex-grow: 1;
+      max-height: 100%;
+    }</style
+  ><style>
+    .select-menu.menu-button {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+    .select-menu.menu-dropdown {
+      list-style: none;
+      overflow: auto;
+    }
+    .select-menu.menu-dropdown .menu-item {
+      cursor: pointer;
+    }
+    .select-menu.menu-dropdown .menu-item:hover,
+    .select-menu.menu-dropdown .menu-item.focused {
+      background: rgba(0, 0, 0, 0.045);
+    }
+    .select-menu.menu-dropdown .menu-item.selected {
+      background: rgba(11, 110, 208, 0.08);
+    }
+    .select-menu.menu-dropdown .menu-item.selected:hover,
+    .select-menu.menu-dropdown .menu-item.selected.focused {
+      background: rgba(11, 110, 208, 0.12);
+    }</style
+  ><style>
+    .overlay {
+      background-color: #fff;
+      height: 100%;
+      left: 50%;
+      opacity: 40%;
+      position: fixed;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      z-index: 99;
+    }
+    .loading-container {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: 100%;
+    }</style
+  ><style>
+    .modal {
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      left: 0;
+      overflow-y: auto;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }</style
+  ><style>
+    #dialog {
+      align-items: center;
+      z-index: 101;
+    }
+    #dialog-box {
+      border-radius: 0.25rem;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem;
+      position: relative;
+      top: 25%;
+    }
+    #dialog-content {
+      flex-grow: 1;
+      order: 2;
+    }
+    #dialog-header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      order: 1;
+    }
+    #dialog-buttons {
+      order: 3;
+    }</style
+  ><style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      box-sizing: border-box;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+    main {
+      display: block;
+    }
+    textarea {
+      overflow: auto;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    *[tabIndex="-1"]:focus-visible {
+      outline: 0;
+    }
+    #page {
+      display: flex;
+      flex-direction: column;
+    }
+    #header {
+      order: 1;
+    }
+    #survey-canvas {
+      order: 3;
+    }
+    #footer {
+      order: 5;
+    }
+    #language-selector-container:empty {
+      display: none;
+    }
+    button {
+      cursor: pointer;
+    }
+    button[disabled] {
+      cursor: default;
+    }
+    .a11y-only {
+      clip: rect(1rem, 1rem, 1rem, 1rem);
+      height: 1rem;
+      overflow: hidden;
+      position: absolute;
+      width: 1rem;
+    }
+    .rich-text ul,
+    .rich-text ol {
+      all: revert;
+    }
+    .icon-button {
+      background: none;
+      height: 2.25rem;
+      width: 2.25rem;
+    }
+    .icon-button svg {
+      vertical-align: middle;
+    }
+    #end-of-survey {
+      text-align: center;
+    }
+    #end-of-survey:focus {
+      outline: none;
+    }
+    #fatal-error-ref {
+      display: block;
+      font-size: 0.75rem;
+      margin-top: 0.375rem;
+    }
+    :root {
+      --transition-delay-sec: 0.5s;
+    }
+    #contents {
+      position: relative;
+      transition: height 0.5s;
+    }
+    .transition-content {
+      overflow: auto;
+    }
+    .transition-wait,
+    .transition-exit-done {
+      display: none;
+    }
+    .transition-none .transition-exit,
+    .transition-none .transition-exit-active {
+      display: none;
+    }
+    .transition-slide .transition-exit {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    [dir="ltr"] .transition-slide.transition-forward .transition-enter,
+    [dir="rtl"] .transition-slide.transition-reverse .transition-enter {
+      transform: translateX(100vw);
+      transition: transform 0s;
+    }
+    [dir="ltr"] .transition-slide.transition-forward .transition-enter-active,
+    [dir="rtl"] .transition-slide.transition-reverse .transition-enter-active {
+      transform: translateX(0);
+      transition: transform 0.5s ease-out;
+    }
+    [dir="ltr"] .transition-slide.transition-forward .transition-exit,
+    [dir="rtl"] .transition-slide.transition-reverse .transition-exit {
+      transition: transform 0s ease-out;
+    }
+    [dir="ltr"] .transition-slide.transition-forward .transition-exit-active,
+    [dir="rtl"] .transition-slide.transition-reverse .transition-exit-active {
+      transform: translateX(-100vw);
+      transition: transform 0.5s ease-out;
+    }
+    [dir="ltr"] .transition-slide.transition-reverse .transition-enter,
+    [dir="rtl"] .transition-slide.transition-forward .transition-enter {
+      transform: translateX(-100vw);
+      transition: transform 0s;
+    }
+    [dir="ltr"] .transition-slide.transition-reverse .transition-enter-active,
+    [dir="rtl"] .transition-slide.transition-forward .transition-enter-active {
+      transform: translateX(0);
+      transition: transform 0.5s ease-out;
+    }
+    [dir="ltr"] .transition-slide.transition-reverse .transition-exit-active,
+    [dir="rtl"] .transition-slide.transition-forward .transition-exit-active {
+      transform: translateX(100vw);
+      transition: transform 0.5s ease-out;
+    }
+    .transition-fade .transition-enter {
+      opacity: 0;
+    }
+    .transition-fade .transition-enter-active {
+      opacity: 1;
+      transition: opacity 0.25s ease-in 0.25s;
+    }
+    .transition-fade .transition-exit {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    .transition-fade .transition-exit-active {
+      opacity: 0;
+      transition: opacity 0.25s ease-out;
+    }
+    .transition-flip {
+      perspective: 50rem;
+      transform-style: preserve-3d;
+      transition: height 0.5s;
+    }
+    .transition-flip .transition-content {
+      backface-visibility: hidden;
+    }
+    [dir="ltr"] .transition-flip.transition-forward .transition-enter,
+    [dir="rtl"] .transition-flip.transition-reverse .transition-enter {
+      transform: rotateY(90deg);
+      transition: transform 0s;
+    }
+    [dir="ltr"] .transition-flip.transition-forward .transition-enter-active,
+    [dir="rtl"] .transition-flip.transition-reverse .transition-enter-active {
+      transform: rotateY(0deg);
+      transition: 0.25s linear 0.25s;
+    }
+    [dir="ltr"] .transition-flip.transition-forward .transition-exit,
+    [dir="rtl"] .transition-flip.transition-reverse .transition-exit {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    [dir="ltr"] .transition-flip.transition-forward .transition-exit-active,
+    [dir="rtl"] .transition-flip.transition-reverse .transition-exit-active {
+      opacity: 0;
+      transform: rotateY(-90deg);
+      transition: transform linear 0.25s, opacity 0s 0.25s;
+    }
+    [dir="ltr"] .transition-flip.transition-reverse .transition-enter,
+    [dir="rtl"] .transition-flip.transition-forward .transition-enter {
+      transform: rotateY(-90deg);
+      transition: transform 0s;
+    }
+    [dir="ltr"] .transition-flip.transition-reverse .transition-enter-active,
+    [dir="rtl"] .transition-flip.transition-forward .transition-enter-active {
+      transform: rotateY(0deg);
+      transition: 0.25s linear 0.25s;
+    }
+    [dir="ltr"] .transition-flip.transition-reverse .transition-exit,
+    [dir="rtl"] .transition-flip.transition-forward .transition-exit {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    [dir="ltr"] .transition-flip.transition-reverse .transition-exit-active,
+    [dir="rtl"] .transition-flip.transition-forward .transition-exit-active {
+      opacity: 0;
+      transform: rotateY(90deg);
+      transition: transform linear 0.25s, opacity 0s 0.25s;
+    }
+    .transition-roll .transition-exit {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    [dir="ltr"] .transition-roll.transition-forward .transition-enter,
+    [dir="rtl"] .transition-roll.transition-reverse .transition-enter {
+      transform: translateX(100%);
+      transition: transform 0s;
+    }
+    [dir="ltr"] .transition-roll.transition-forward .transition-enter-active,
+    [dir="rtl"] .transition-roll.transition-reverse .transition-enter-active {
+      transform: translateX(0) rotate(-720deg);
+      transition: transform 0.5s ease-out;
+    }
+    [dir="ltr"] .transition-roll.transition-forward .transition-exit,
+    [dir="rtl"] .transition-roll.transition-reverse .transition-exit {
+      transition: transform 0s ease-out;
+    }
+    [dir="ltr"] .transition-roll.transition-forward .transition-exit-active,
+    [dir="rtl"] .transition-roll.transition-reverse .transition-exit-active {
+      transform: translateX(-100%) rotate(-720deg);
+      transition: transform 0.5s ease-out;
+    }
+    [dir="ltr"] .transition-roll.transition-reverse .transition-enter,
+    [dir="rtl"] .transition-roll.transition-forward .transition-enter {
+      transform: translateX(-100%);
+      transition: transform 0s;
+    }
+    [dir="ltr"] .transition-roll.transition-reverse .transition-enter-active,
+    [dir="rtl"] .transition-roll.transition-forward .transition-enter-active {
+      transform: translateX(0) rotate(720deg);
+      transition: transform 0.5s ease-out;
+    }
+    [dir="ltr"] .transition-roll.transition-reverse .transition-exit-active,
+    [dir="rtl"] .transition-roll.transition-forward .transition-exit-active {
+      transform: translateX(100%) rotate(720deg);
+      transition: transform 0.5s ease-out;
+    }
+    #app .hidden {
+      display: none;
+    }
+    .metrics {
+      column-gap: 0.625rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
+    .metrics span:nth-child(2n-1) {
+      font-weight: bold;
+    }</style
+  ><meta charset="UTF-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,shrink-to-fit=no"
+  /><meta name="apple-mobile-web-app-capable" content="yes" /><meta
+    name="mobile-web-app-capable"
+    content="yes"
+  /><style>
+    #q {
+      background: #fff;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+    #q::before {
+      content: "";
+      display: block;
+      position: fixed;
+      top: 30%;
+      right: 50%;
+      width: 50px;
+      height: 50px;
+      border: 6px solid transparent;
+      border-top-color: #0b6ed0;
+      border-left-color: #0b6ed0;
+      border-radius: 80px;
+      animation: q 1s linear infinite;
+      margin: -33px -33px 0 0;
+      box-sizing: border-box;
+    }
+    @keyframes q {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script>
+    !(function () {
+      "use strict";
+      var e,
+        s,
+        n,
+        o,
+        t,
+        m = {},
+        r = {};
+      function i(e) {
+        var s = r[e];
+        if (void 0 !== s) return s.exports;
+        var n = (r[e] = { id: e, loaded: !1, exports: {} });
+        return (
+          m[e].call(n.exports, n, n.exports, i), (n.loaded = !0), n.exports
+        );
+      }
+      (i.m = m),
+        (i.amdO = {}),
+        (e = []),
+        (i.O = function (s, n, o, t) {
+          if (!n) {
+            var m = 1 / 0;
+            for (j = 0; j < e.length; j++) {
+              (n = e[j][0]), (o = e[j][1]), (t = e[j][2]);
+              for (var r = !0, a = 0; a < n.length; a++)
+                (!1 & t || m >= t) &&
+                Object.keys(i.O).every(function (e) {
+                  return i.O[e](n[a]);
+                })
+                  ? n.splice(a--, 1)
+                  : ((r = !1), t < m && (m = t));
+              if (r) {
+                e.splice(j--, 1);
+                var f = o();
+                void 0 !== f && (s = f);
+              }
+            }
+            return s;
+          }
+          t = t || 0;
+          for (var j = e.length; j > 0 && e[j - 1][2] > t; j--) e[j] = e[j - 1];
+          e[j] = [n, o, t];
+        }),
+        (i.n = function (e) {
+          var s =
+            e && e.__esModule
+              ? function () {
+                  return e.default;
+                }
+              : function () {
+                  return e;
+                };
+          return i.d(s, { a: s }), s;
+        }),
+        (n = Object.getPrototypeOf
+          ? function (e) {
+              return Object.getPrototypeOf(e);
+            }
+          : function (e) {
+              return e.__proto__;
+            }),
+        (i.t = function (e, o) {
+          if ((1 & o && (e = this(e)), 8 & o)) return e;
+          if ("object" == typeof e && e) {
+            if (4 & o && e.__esModule) return e;
+            if (16 & o && "function" == typeof e.then) return e;
+          }
+          var t = Object.create(null);
+          i.r(t);
+          var m = {};
+          s = s || [null, n({}), n([]), n(n)];
+          for (
+            var r = 2 & o && e;
+            "object" == typeof r && !~s.indexOf(r);
+            r = n(r)
+          )
+            Object.getOwnPropertyNames(r).forEach(function (s) {
+              m[s] = function () {
+                return e[s];
+              };
+            });
+          return (
+            (m.default = function () {
+              return e;
+            }),
+            i.d(t, m),
+            t
+          );
+        }),
+        (i.d = function (e, s) {
+          for (var n in s)
+            i.o(s, n) &&
+              !i.o(e, n) &&
+              Object.defineProperty(e, n, { enumerable: !0, get: s[n] });
+        }),
+        (i.f = {}),
+        (i.e = function (e) {
+          return Promise.all(
+            Object.keys(i.f).reduce(function (s, n) {
+              return i.f[n](e, s), s;
+            }, [])
+          );
+        }),
+        (i.u = function (e) {
+          return (
+            "c/" +
+            ({
+              12: "../m/preview-SW-json",
+              22: "../m/preview-ORI-json",
+              160: "../m/system-MY-json",
+              187: "../m/system-NO-json",
+              204: "../m/system-HU-json",
+              207: "../m/system-AR-json",
+              261: "../m/system-MS-json",
+              305: "../m/system-FR-json",
+              309: "slider",
+              388: "../m/system-DA-json",
+              390: "../m/system-SR-ME-json",
+              463: "../m/system-PT-json",
+              638: "../m/preview-SR-ME-json",
+              729: "../m/preview-SL-json",
+              850: "../m/system-NE-json",
+              863: "../m/preview-TEL-json",
+              1066: "../m/system-KO-json",
+              1121: "../m/preview-PT-BR-json",
+              1136: "ro",
+              1138: "../m/system-GU-json",
+              1159: "../m/preview-IT-json",
+              1201: "../m/system-UR-json",
+              1370: "../m/preview-ID-json",
+              1378: "../m/preview-SIN-json",
+              1512: "../m/preview-BG-json",
+              1550: "../m/preview-LV-json",
+              1567: "../m/system-LV-json",
+              1577: "../m/system-FI-json",
+              1582: "../m/system-IT-json",
+              1656: "../m/preview-VI-json",
+              1701: "../m/preview-FI-json",
+              1726: "../m/system-ZH-T-json",
+              1773: "../m/preview-LT-json",
+              1778: "../m/preview-KO-json",
+              1884: "../m/preview-HR-json",
+              1934: "../m/system-BS-json",
+              1994: "../m/preview-ET-json",
+              2021: "../m/system-TGL-json",
+              2066: "../m/preview-RU-json",
+              2226: "../m/preview-EN-GB-json",
+              2282: "../m/system-DE-json",
+              2342: "../m/system-KAN-json",
+              2404: "../m/preview-MN-json",
+              2482: "../m/preview-BEL-json",
+              2506: "../m/preview-RO-json",
+              2509: "../m/preview-UK-json",
+              2550: "../m/preview-PB-json",
+              2818: "../m/preview-SK-json",
+              3099: "../m/system-SIN-json",
+              3104: "nps",
+              3147: "../m/preview-DE-json",
+              3259: "../m/system-EL-json",
+              3336: "../m/preview-MY-json",
+              3344: "../m/system-SR-json",
+              3349: "../m/system-ZH-S-json",
+              3401: "../m/preview-HU-json",
+              3430: "../m/system-TEL-json",
+              3508: "../m/system-ORI-json",
+              3515: "../m/system-SO-json",
+              3539: "../m/preview-KAN-json",
+              3581: "../m/system-FR-CA-json",
+              3610: "../m/system-PT-BR-json",
+              3674: "../m/system-SQI-json",
+              3681: "../m/system-PL-json",
+              3697: "../m/system-TA-json",
+              3711: "../m/preview-ES-ES-json",
+              3763: "../m/preview-BS-json",
+              3873: "../m/preview-TA-json",
+              3931: "matrix",
+              3999: "../m/system-BEL-json",
+              4134: "../m/system-SW-json",
+              4147: "../m/system-EO-json",
+              4250: "../m/preview-PL-json",
+              4291: "../m/preview-ES-json",
+              4315: "../m/system-FA-json",
+              4689: "../m/system-SL-json",
+              4719: "../m/preview-AZ-AZ-json",
+              4742: "../m/system-MAL-json",
+              4745: "file",
+              4766: "../m/system-MK-json",
+              4895: "../m/preview-HI-json",
+              4919: "../m/preview-UR-json",
+              4955: "../m/preview-HIL-json",
+              5002: "../m/system-RI-GI-json",
+              5013: "../m/system-KAZ-json",
+              5040: "../m/system-RO-json",
+              5089: "../m/preview-EO-json",
+              5112: "../m/system-HIL-json",
+              5226: "../m/system-MAR-json",
+              5253: "../m/preview-MK-json",
+              5341: "../m/system-EN-GB-json",
+              5359: "../m/preview-CS-json",
+              5510: "db",
+              5555: "../m/system-RU-json",
+              5583: "../m/system-ES-json",
+              5638: "../m/preview-FR-CA-json",
+              5694: "../m/preview-ZH-S-json",
+              5814: "mc",
+              5818: "../m/preview-ASM-json",
+              5836: "../m/preview-MAL-json",
+              6018: "../m/system-SV-json",
+              6055: "../m/system-KAT-json",
+              6064: "../m/system-HR-json",
+              6068: "../m/system-ISL-json",
+              6163: "../m/preview-SV-json",
+              6204: "../m/preview-TGL-json",
+              6332: "../m/system-ES-ES-json",
+              6361: "../m/system-UK-json",
+              6375: "../m/preview-KAZ-json",
+              6402: "../m/system-BN-json",
+              6407: "../m/preview-ISL-json",
+              6430: "../m/system-ET-json",
+              6477: "../m/preview-SR-json",
+              6572: "../m/preview-CKB-json",
+              6680: "form",
+              6707: "../m/system-AZ-AZ-json",
+              6718: "../m/preview-PT-json",
+              6720: "../m/system-HYE-json",
+              6773: "meta",
+              6818: "../m/preview-DA-json",
+              6819: "../m/system-TH-json",
+              6821: "../m/preview-NL-json",
+              6885: "../m/preview-TR-json",
+              6932: "../m/system-Q_DEV-json",
+              7034: "../m/system-PA-IN-json",
+              7218: "../m/preview-FA-json",
+              7330: "../m/preview-JA-json",
+              7338: "../m/preview-FR-json",
+              7339: "../m/preview-BN-json",
+              7483: "../m/system-JA-json",
+              7490: "../m/system-TR-json",
+              7509: "../m/system-CKB-json",
+              7786: "../m/system-SK-json",
+              7798: "../m/preview-EL-json",
+              7853: "recaptcha",
+              7857: "../m/preview-Q_DEV-json",
+              7881: "../m/preview-SO-json",
+              8082: "../m/preview-KM-json",
+              8106: "orgh",
+              8109: "../m/system-KM-json",
+              8246: "../m/preview-CEB-json",
+              8249: "../m/preview-HE-json",
+              8295: "../m/preview-CY-json",
+              8322: "te",
+              8370: "../m/system-HI-json",
+              8528: "../m/preview-SQI-json",
+              8576: "../m/preview-MS-json",
+              8609: "../m/system-LT-json",
+              8614: "../m/preview-CA-json",
+              8646: "../m/preview-HYE-json",
+              8724: "../m/preview-AR-json",
+              8835: "../m/preview-RI-GI-json",
+              9026: "../m/system-PB-json",
+              9057: "timing",
+              9096: "../m/preview-MAR-json",
+              9152: "../m/preview-PA-IN-json",
+              9180: "../m/preview-ZH-T-json",
+              9266: "../m/system-ID-json",
+              9314: "../m/system-HE-json",
+              9330: "../m/system-CA-json",
+              9473: "../m/system-NL-json",
+              9476: "../m/preview-GU-json",
+              9482: "../m/system-ASM-json",
+              9514: "../m/preview-NE-json",
+              9532: "../m/preview-NO-json",
+              9583: "../m/preview-TH-json",
+              9585: "../m/system-MN-json",
+              9663: "../m/system-CY-json",
+              9692: "../m/supportedLanguages-json",
+              9713: "../m/system-CEB-json",
+              9857: "../m/system-CS-json",
+              9898: "../m/preview-KAT-json",
+              9952: "../m/system-VI-json",
+              9975: "plugin",
+              9997: "../m/system-BG-json",
+            }[e] || e) +
+            "." +
+            {
+              12: "575a0a67",
+              22: "e76677ab",
+              160: "c78141a7",
+              187: "084ff6f4",
+              204: "3cccf69b",
+              207: "34b33136",
+              261: "3cadf0fb",
+              305: "aa98fd98",
+              309: "26ea3b0d",
+              388: "0266debc",
+              390: "a6ef9b80",
+              463: "52de8f3c",
+              638: "4e1ae3b5",
+              729: "20a7e2cc",
+              850: "568604e1",
+              863: "dd66881d",
+              1028: "5b9f26de",
+              1066: "d2810626",
+              1121: "1536d8ef",
+              1136: "af716fc2",
+              1138: "5490cfa9",
+              1159: "1bc49dac",
+              1201: "1bfb408a",
+              1370: "e4bf7772",
+              1378: "00f3cbf4",
+              1512: "7daf4e8c",
+              1550: "8abedb1a",
+              1567: "507c7d42",
+              1577: "6e0a09b7",
+              1582: "373dbdb8",
+              1656: "81102036",
+              1701: "aadc5c2e",
+              1726: "84020b41",
+              1773: "0a1e3e44",
+              1778: "41378477",
+              1884: "f7eb0492",
+              1934: "59dc1b04",
+              1994: "3ef8a108",
+              2021: "f32de5af",
+              2066: "8690c920",
+              2226: "6bdde535",
+              2282: "21d49daa",
+              2342: "5ceedd5d",
+              2404: "e89a363a",
+              2482: "b03d0526",
+              2506: "3cb6f727",
+              2509: "774d2c02",
+              2550: "309733ae",
+              2818: "26ec1fd6",
+              3099: "aa96bc7c",
+              3104: "cdfe994b",
+              3147: "c1873c94",
+              3259: "fec5abfe",
+              3336: "e35929c1",
+              3344: "e867e58a",
+              3349: "fdb249a6",
+              3401: "6ba5e306",
+              3430: "24b155a9",
+              3508: "1db6560f",
+              3515: "407f6903",
+              3539: "d49e17c3",
+              3581: "0f4faf85",
+              3610: "9bd2d173",
+              3674: "1f8d2175",
+              3681: "1e4dcf07",
+              3697: "372e4157",
+              3711: "2101419b",
+              3763: "6e6909a3",
+              3873: "74e17284",
+              3931: "1cc9be43",
+              3999: "cb45895e",
+              4134: "1cd5ba46",
+              4147: "f048bdfa",
+              4250: "3b215952",
+              4291: "f98cd032",
+              4315: "fb412f45",
+              4689: "152b5b99",
+              4719: "5c8befea",
+              4742: "097a70ac",
+              4745: "75e36365",
+              4766: "8b81eb9e",
+              4895: "dc25762e",
+              4919: "24902b84",
+              4955: "88f9f4f0",
+              5002: "77a4dc68",
+              5013: "65ae38a1",
+              5040: "90ae50c9",
+              5089: "df35fac0",
+              5112: "b9172a4e",
+              5226: "e9c75571",
+              5253: "5432389f",
+              5341: "9e805697",
+              5359: "01c89916",
+              5510: "124cddf1",
+              5555: "dcb71d7d",
+              5583: "145614a2",
+              5638: "99e2163d",
+              5694: "019668eb",
+              5814: "f2949d7d",
+              5818: "01159468",
+              5836: "bbe4603c",
+              6018: "a1f364b4",
+              6055: "8db9a15d",
+              6064: "b04bf144",
+              6068: "eeb765d5",
+              6163: "43b7b5b2",
+              6204: "815bd2d8",
+              6332: "9f05d7f9",
+              6361: "1afc8400",
+              6375: "7abe20fe",
+              6402: "06bf4621",
+              6407: "1451769e",
+              6430: "c34cd14d",
+              6477: "26b49f14",
+              6572: "c07a9a0e",
+              6680: "db6f2bbb",
+              6707: "f4c4e1e7",
+              6718: "12af5875",
+              6720: "a6ee762c",
+              6773: "d9a3f046",
+              6818: "a650fa88",
+              6819: "37e3497b",
+              6821: "a06913b1",
+              6885: "93bfbe91",
+              6932: "4f25baa1",
+              7034: "64909b4e",
+              7218: "0915bbba",
+              7330: "34b9fa42",
+              7338: "6a9282b3",
+              7339: "a9310705",
+              7483: "42ffc8a1",
+              7490: "b0658f87",
+              7509: "bf565361",
+              7786: "0a464d1c",
+              7798: "6de460d9",
+              7853: "d779608a",
+              7857: "a3250cf4",
+              7881: "5668cc72",
+              8082: "6abdfcac",
+              8106: "0c46d1dc",
+              8109: "64cbb599",
+              8246: "7de8930a",
+              8249: "2f16acf2",
+              8295: "ad98fa66",
+              8322: "8719465e",
+              8370: "cfebe572",
+              8528: "30e1ed3f",
+              8576: "2a51a670",
+              8609: "252f95c5",
+              8614: "c9b61f73",
+              8646: "0847f152",
+              8724: "fc7f7be8",
+              8835: "62db8b09",
+              9026: "d47a8675",
+              9057: "1e5acd81",
+              9096: "1b5d6442",
+              9152: "ba7cb636",
+              9180: "9c580883",
+              9266: "057d7135",
+              9314: "128e8a31",
+              9330: "8e79d3db",
+              9473: "1397442f",
+              9476: "90c07065",
+              9482: "7d26d147",
+              9514: "130c891d",
+              9532: "7ee3c483",
+              9583: "4a34b839",
+              9585: "7f2a944f",
+              9663: "6b4d1105",
+              9692: "816e597a",
+              9713: "fc56c5d0",
+              9857: "fabc5054",
+              9898: "d26415a3",
+              9952: "fbbb9e76",
+              9975: "21cc809f",
+              9997: "3ea33ea7",
+            }[e] +
+            ".js"
+          );
+        }),
+        (i.g = (function () {
+          if ("object" == typeof globalThis) return globalThis;
+          try {
+            return this || new Function("return this")();
+          } catch (e) {
+            if ("object" == typeof window) return window;
+          }
+        })()),
+        (i.o = function (e, s) {
+          return Object.prototype.hasOwnProperty.call(e, s);
+        }),
+        (o = {}),
+        (t = "jfe-react-app:"),
+        (i.l = function (e, s, n, m) {
+          if (o[e]) o[e].push(s);
+          else {
+            var r, a;
+            if (void 0 !== n)
+              for (
+                var f = document.getElementsByTagName("script"), j = 0;
+                j < f.length;
+                j++
+              ) {
+                var c = f[j];
+                if (
+                  c.getAttribute("src") == e ||
+                  c.getAttribute("data-webpack") == t + n
+                ) {
+                  r = c;
+                  break;
+                }
+              }
+            r ||
+              ((a = !0),
+              ((r = document.createElement("script")).charset = "utf-8"),
+              (r.timeout = 120),
+              i.nc && r.setAttribute("nonce", i.nc),
+              r.setAttribute("data-webpack", t + n),
+              (r.src = e)),
+              (o[e] = [s]);
+            var d = function (s, n) {
+                (r.onerror = r.onload = null), clearTimeout(p);
+                var t = o[e];
+                if (
+                  (delete o[e],
+                  r.parentNode && r.parentNode.removeChild(r),
+                  t &&
+                    t.forEach(function (e) {
+                      return e(n);
+                    }),
+                  s)
+                )
+                  return s(n);
+              },
+              p = setTimeout(
+                d.bind(null, void 0, { type: "timeout", target: r }),
+                12e4
+              );
+            (r.onerror = d.bind(null, r.onerror)),
+              (r.onload = d.bind(null, r.onload)),
+              a && document.head.appendChild(r);
+          }
+        }),
+        (i.r = function (e) {
+          "undefined" != typeof Symbol &&
+            Symbol.toStringTag &&
+            Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+            Object.defineProperty(e, "__esModule", { value: !0 });
+        }),
+        (i.nmd = function (e) {
+          return (e.paths = []), e.children || (e.children = []), e;
+        }),
+        (i.j = 7252),
+        (i.p = "/jfe/static/dist/v2/"),
+        (function () {
+          if (void 0 !== i) {
+            var e = i.u,
+              s = i.e,
+              n = new Map(),
+              o = new Map();
+            (i.u = function (s) {
+              return e(s) + (n.has(s) ? "?" + n.get(s) : "");
+            }),
+              (i.e = function (t) {
+                return s(t).catch(function (s) {
+                  var m = o.has(t) ? o.get(t) : 3;
+                  if (m < 1) {
+                    var r = e(t);
+                    throw (
+                      ((s.message =
+                        "Loading chunk " +
+                        t +
+                        " failed after 3 retries.\n(" +
+                        r +
+                        ")"),
+                      (s.request = r),
+                      s)
+                    );
+                  }
+                  return new Promise(function (e) {
+                    setTimeout(function () {
+                      var s = Date.now();
+                      n.set(t, s), o.set(t, m - 1), e(i.e(t));
+                    }, 1e3);
+                  });
+                });
+              });
+          }
+        })(),
+        (function () {
+          var e = { 7252: 0 };
+          (i.f.j = function (s, n) {
+            var o = i.o(e, s) ? e[s] : void 0;
+            if (0 !== o)
+              if (o) n.push(o[2]);
+              else if (7252 != s) {
+                var t = new Promise(function (n, t) {
+                  o = e[s] = [n, t];
+                });
+                n.push((o[2] = t));
+                var m = i.p + i.u(s),
+                  r = new Error();
+                i.l(
+                  m,
+                  function (n) {
+                    if (i.o(e, s) && (0 !== (o = e[s]) && (e[s] = void 0), o)) {
+                      var t = n && ("load" === n.type ? "missing" : n.type),
+                        m = n && n.target && n.target.src;
+                      (r.message =
+                        "Loading chunk " +
+                        s +
+                        " failed.\n(" +
+                        t +
+                        ": " +
+                        m +
+                        ")"),
+                        (r.name = "ChunkLoadError"),
+                        (r.type = t),
+                        (r.request = m),
+                        o[1](r);
+                    }
+                  },
+                  "chunk-" + s,
+                  s
+                );
+              } else e[s] = 0;
+          }),
+            (i.O.j = function (s) {
+              return 0 === e[s];
+            });
+          var s = function (s, n) {
+              var o,
+                t,
+                m = n[0],
+                r = n[1],
+                a = n[2],
+                f = 0;
+              if (
+                m.some(function (s) {
+                  return 0 !== e[s];
+                })
+              ) {
+                for (o in r) i.o(r, o) && (i.m[o] = r[o]);
+                if (a) var j = a(i);
+              }
+              for (s && s(n); f < m.length; f++)
+                (t = m[f]), i.o(e, t) && e[t] && e[t][0](), (e[t] = 0);
+              return i.O(j);
+            },
+            n = (self.webpackChunkjfe_react_app =
+              self.webpackChunkjfe_react_app || []);
+          n.forEach(s.bind(null, 0)), (n.push = s.bind(null, n.push.bind(n)));
+        })(),
+        (i.nc = void 0);
+    })();
+  </script>
+  <script defer="defer" src="/jfe/static/dist/v2/core.54cdeaa2.js"></script>
+  <script defer="defer" src="/jfe/static/dist/v2/cfe.ed7d2e9b.js"></script>
+  <script defer="defer" src="/jfe/static/dist/v2/5500.6264848b.js"></script>
+  <script defer="defer" src="/jfe/static/dist/v2/8081.3d0d5325.js"></script>
+  <script defer="defer" src="/jfe/static/dist/v2/8633.df1838b6.js"></script>
+  <script defer="defer" src="/jfe/static/dist/v2/main.784fe51f.js"></script>
+  <link
+    id="shared-component-style"
+    href="/jfe/themes/component-skins/qualtrics.simple/null/f8f37c271285c1584f045a8bc475c184dc5176d3/version-1681460660252-0db53b/components/shared.css"
+    type="text/css"
+    rel="stylesheet"
+  /><title>Associated Students of UCR | 2023 Ballot</title
+  ><meta
+    property="og:title"
+    content="Associated Students of UCR | 2023 Ballot"
+  /><meta
+    name="description"
+    content="The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today."
+  /><meta
+    property="og:description"
+    content="The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today."
+  /><meta name="robots" content="noindex" /><link
+    type="image/x-icon"
+    rel="icon"
+    href="https://ucriverside.az1.qualtrics.com/brand-management/brand-assets/ucriverside/favicon.ico"
+  /><meta property="og:image" content="" /><link
+    rel="apple-touch-icon-precomposed"
+    href=""
+  />
+</header>
 <body>
   <div id="q" style="display: none"></div>
   <div id="root">
@@ -20,7 +1133,9 @@
                 <div class="content" style="">
                   <section class="info" id="error-message">
                     <span class="rich-text"
-                      >Thank you for taking the time to vote at the Bell Tower! Feel free to pick up you meal incentive *while supplies last* or elections merch/prize.</span
+                      >Thank you for taking the time to vote at the Bell Tower!
+                      Feel free to pick up you meal incentive *while supplies
+                      last* or elections merch/prize.</span
                     >
                   </section>
                 </div>
