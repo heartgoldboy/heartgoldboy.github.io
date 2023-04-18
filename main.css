@@ -5,6 +5,9 @@
   outline: 0;
   padding: 0.875rem 0.688rem;
   text-decoration: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 #page #footer,
 #page #header-container,
@@ -15,7 +18,7 @@
   width: 100%;
 }
 #page #logo-container img {
-  max-height: 5.625rem;
+  max-height: fit-content;
 }
 img {
   height: auto !important;
@@ -38,6 +41,17 @@ section {
   width: 50%;
   height: 200px;
   margin: 0 auto;
+  display: flex;
+}
+
+button {
+  background-color:#0048AB !important;
+}
+
+.asucr_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 30rem) {
