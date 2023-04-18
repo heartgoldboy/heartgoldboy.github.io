@@ -48,15 +48,19 @@ section {
   display: flex;
 }
 
+
 button {
   background-color:#0048AB !important;
-  font-size: medium !important
+  font-size: medium !important;
+  width: 85% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .asucr_logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 .fa-regular {
