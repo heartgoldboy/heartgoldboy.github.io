@@ -20,6 +20,10 @@
 #page #logo-container img {
   max-height: fit-content;
 }
+
+#logo-container {
+  margin: 0 0 20px 0 !important;
+}
 img {
   height: auto !important;
   max-width: 100%;
