@@ -1,0 +1,49 @@
+#plug a {
+  color: #32363a;
+  display: inline-block;
+  height: 2.75rem;
+  outline: 0;
+  padding: 0.875rem 0.688rem;
+  text-decoration: none;
+}
+#page #footer,
+#page #header-container,
+#page #logo-container,
+#page #survey-canvas {
+  margin: 0 auto;
+  width: 100%;
+}
+#page #logo-container img {
+  max-height: 5.625rem;
+}
+img {
+  height: auto !important;
+  max-width: 100%;
+}
+
+#page #logo-container {
+  display: flex;
+  padding: 1.5rem;
+  justify-content: center;
+  background: #003da5;
+  width: 100%;
+}
+
+#page #error-message {
+  text-align: center;
+}
+
+@media (min-width: 30rem) {
+  #plug a {
+    background: #edeff0;
+    border-radius: 0 0.25rem 0 0;
+  }
+}
+@media (min-width: 64rem) {
+  #page #footer,
+  #page #header-container,
+  #page #logo-container,
+  #page #survey-canvas {
+    width: 64rem;
+  }
+}
