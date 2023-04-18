@@ -44,7 +44,7 @@ img {
 }
 
 #error-message {
-  padding: 0 25px !important;
+  padding: 0 20px !important;
 }
 
 section {
@@ -73,6 +73,10 @@ a {
 
 .fa-regular {
   font-weight: 700 !important;
+}
+
+.rich-text {
+  font-size: medium !important;
 }
 
 #main-content {
