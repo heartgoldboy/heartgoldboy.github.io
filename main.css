@@ -31,7 +31,13 @@ img {
 }
 
 #page #error-message {
-  text-align: center;
+  text-align: left;
+}
+
+section {
+  width: 50%;
+  height: 200px;
+  margin: 0 auto;
 }
 
 @media (min-width: 30rem) {
