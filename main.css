@@ -50,12 +50,21 @@ section {
 
 button {
   background-color:#0048AB !important;
+  font-size: medium !important
 }
 
 .asucr_logo {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.fa-regular {
+  font-weight:700 !important;
+}
+
+i {
+  padding-left: 15px !important;
 }
 
 @media (min-width: 30rem) {
